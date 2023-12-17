@@ -97,7 +97,7 @@ img{
 </style>
 <body><center>
 <img src="pledge.png"><p>
-<input type="text" id="nameInput" placeholder="ENTER NAME"></p>
+<input type="text" id="nameInput" placeholder="ENTER NAME" required></p>
 <select type="text" id="taskInput" placeholder="ITEMS">
     <option value="select">Select an ITEM</option>
     <option value="CASH">CASH</option>
@@ -107,7 +107,7 @@ img{
 
 
     </select><p>
-<input type="date" id="dateInput" placeholder="DAte"><p>
+<input type="date" id="dateInput" min="" required placeholder="DAte"><p>
 
 <button onclick="addTask()">Pledge</button>
 </center>
@@ -115,6 +115,14 @@ img{
 <ul id="taskList"></ul>
 
 <script>
+// Get the current date in the format "YYYY-MM-DD"
+  const today = new Date().toISOString().split('T')[0];
+
+  // Set the min attribute to the current date
+  document.getElementById('dateInput').min = today;
+
+
+    
     // Function to add a new task to the list
     function addTask() {
         // Get the input values
