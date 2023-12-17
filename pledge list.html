@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLEDGE</title>
+</head>
+<style>
+    *{
+        border-style: none;
+    }
+    body{
+        background: red;
+    }
+    img{
+        width: 30%;
+
+    }
+::placeholder{
+    color: navy;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+#nameInput{
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 3px navy ;
+
+
+}
+#taskInput{
+    padding: 2%;
+    border-radius: 3px;
+    color: navy;
+    box-shadow: 0 3px navy ;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+#dateInput{
+font-family: Helvetica;
+    font-weight: bold;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    color: navy;
+    border-style: none;
+    padding: 20px;
+    border-radius: 2px;
+    font-weight: bolder;
+    box-shadow: 0 3px navy ;
+}
+button{
+    padding: 0.9%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 3px whitesmoke ;
+    background: navy;
+    font-weight: bold;
+    font-size: xx-large;
+    border-radius: 9px;
+    color: white;
+
+}
+
+
+
+
+ul{
+
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    font-family: Helvetica;
+    margin-right: 20%;
+    margin-left: 20%;
+    background-color:navy;
+    border-radius: 2px;
+
+}
+@media (max-width:800) {
+
+}
+@media (max-width:500px) {
+       ul{
+       font-size: medium;
+       font-weight:  bolder;
+       margin-right: 0%;
+       margin-left: 0%;
+}
+img{
+        width: 60%;
+    }
+
+}
+</style>
+<body><center>
+<img src="pledge.png"><p>
+<input type="text" id="nameInput" placeholder="ENTER NAME"></p>
+<select type="text" id="taskInput" placeholder="ITEMS">
+    <option value="select">Select an ITEM</option>
+    <option value="CASH">CASH</option>
+    <option value="DINNER DATE">DINNER DATE</option>
+    <option value="DRESS">DRESS</option>
+    <option value="SHOE">SHOE</option>
+
+
+    </select><p>
+<input type="date" id="dateInput" placeholder="DAte"><p>
+
+<button onclick="addTask()">Pledge</button>
+</center>
+
+<ul id="taskList"></ul>
+
+<script>
+    // Function to add a new task to the list
+    function addTask() {
+        // Get the input values
+        var dateInput = document.getElementById("nameInput");
+        var taskInput = document.getElementById("taskInput");
+        var dateInput = document.getElementById("dateInput");
+        var taskname=nameInput.value;
+        var taskText = taskInput.value;
+        var taskDate = dateInput.value;
+
+        // Clear the input fields
+        taskInput.value = '';
+        dateInput.value = '';
+        nameInput.value='';
+
+        // Get the <ul> element by its ID
+        var taskList = document.getElementById("taskList");
+
+        // Create a new list item element
+        var listItem = document.createElement("ul");
+
+        // Create a span element for the task text
+        var taskTextSpan = document.createElement("span");
+        taskTextSpan.appendChild(document.createTextNode(taskname + " , " +taskText + " , " + taskDate));
+
+        // Append the span to the list item
+        listItem.appendChild(taskTextSpan);
+
+        // Append the list item to the unordered list
+        taskList.appendChild(listItem);
+    }
+</script>
+
+</body>
+</html>
